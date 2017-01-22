@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="../css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="../addones/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../addones/bootstrap-jQueryUI/css/custom-theme/jquery-ui-1.10.0.custom.css">
+</head>
+<body>
+<div id="reg-main-box">
+    <div style="width: 100%">
+        <label id="reg-main-box-title" class="title-font-color center-block">迷你魔兽</label>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="ip_lgUserName" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="ip_lgUserName" placeholder="请输入用户名,长度为8-24,且不能为中文或包含特殊符号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ip_lgUserPwd" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="ip_lgUserPwd" placeholder="请输入密码,长度为8-32,且不能为中文或包含特殊符号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ip_lgUserCPwd" class="col-sm-2 control-label">确认密码</label>
+
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="ip_lgUserCPwd" placeholder="请再次输入密码,该次输入请与密码保持一致">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ip_lgUserCCode" class="col-sm-2 control-label">验证码</label>
+
+            <div class="col-sm-10 form-inline">
+                <input type="text" class="form-control" id="ip_lgUserCCode" style="width: 79%;" placeholder="请输入右侧验证码">
+                <img src="/getCode.do" style="width: 20%;height: 34px;" id="ip_lgUserCCodeFromService" onclick="refresh_validation('ip_lgUserCCodeFromService')" />
+            </div>
+        </div>
+        <div class="center-block" style="width:170px ">
+            <form class="form-inline">
+                <button type="button" class="btn btn-default common-font-color" onclick="register_onclick()">确认注册</button>
+                <button type="button" class="btn btn-default common-font-color">返回主页</button>
+            </form>
+        </div>
+    </form>
+</div>
+<div id="check-dialog"></div>
+</body>
+</html>
+<script type="text/javascript" src="../addones/jQuery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../addones/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../addones/bootstrap-jQueryUI/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/custom-register.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#check-dialog").dialog({
+            draggable:false,
+            hide : false,
+            title : "输入有误",
+            resizable : false,
+            dialogClass : "alert"
+        });
+        $("#check-dialog").dialog("close");
+    });
+</script>
+

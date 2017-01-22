@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+
+    <link type="text/css" rel="stylesheet" media="screen" href="../addones/DWZ/themes/silver/style.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="../addones/DWZ/themes/css/core.css" />
+    <link type="text/css" rel="stylesheet" media="print" href="../addones/DWZ/themes/css/print.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="../addones/DWZ/uploadify/css/uploadify.css" />
+    <!--[if IE]>
+    <link href="../addones/DWZ/themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../addones/DWZ/js/speedup.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="../addones/DWZ/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <script src="../addones/DWZ/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/js/jquery.validate.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/js/jquery.bgiframe.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/xheditor/xheditor-1.2.2.min.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/xheditor/xheditor_lang/zh-cn.js" type="text/javascript"></script>
+    <script src="../addones/DWZ/uploadify/scripts/jquery.uploadify.js" type="text/javascript"></script>
+
+    <!-- svg图表  supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+ -->
+    <script type="text/javascript" src="../addones/DWZ/chart/raphael.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/chart/g.raphael.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/chart/g.bar.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/chart/g.line.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/chart/g.pie.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/chart/g.dot.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/bin/dwz.min.js"></script>
+    <script type="text/javascript" src="../addones/DWZ/js/dwz.regional.zh.js"></script>
+
+</head>
+<body>
+    <div id="layout">
+        <div id="header">
+            <div class="headerNav">
+                <!--<a class="logo">标志</a>-->
+                <ul class="nav">
+                    <li id="switchEnvBox"><a href="javascript:">（<span>双线 1 区</span>）切换服务器</a>
+                        <ul>
+                            <li><a href="sidebar_1.html">双线 1 区</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                            <li><a href="sidebar_2.html">筹备中...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="donation.html" target="dialog" height="400" title="捐赠 & DWZ学习视频">充值</a></li>
+                    <li><a href="changepwd.html" target="dialog" width="600">设置</a></li>
+                    <li><a href="http://www.cnblogs.com/dwzjs" target="_blank">官网</a></li>
+                    <li><a href="http://weibo.com/dwzui" target="_blank">论坛</a></li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="leftside">
+            <div id="sidebar_s">
+                <div class="collapse">
+                    <div class="toggleCollapse"><div></div></div>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div class="toggleCollapse">
+                    <h2>菜单</h2>
+                    <!--<div>收缩</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        DWZ.init("../addones/DWZ/dwz.frag.xml",{
+            loginUrl:"register.html", loginTitle:"登录",	// 弹出登录对话框
+//		    loginUrl:"register.html",	// 跳到登录页面
+            statusCode:{ok:200, error:300, timeout:301}, //【可选】
+            pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
+            keys: {statusCode:"statusCode", message:"message"}, //【可选】
+            ui:{hideMode:'offsets'}, //【可选】hideMode:navTab组件切换的隐藏方式，支持的值有’display’，’offsets’负数偏移位置的值，默认值为’display’
+            debug:true,	// 调试模式 【true|false】
+            callback:function(){
+                initEnv();
+                $("#themeList").theme({themeBase:"../addones/DWZ/themes"}); // themeBase 相对于index页面的主题base路径
+            }
+        });
+    });
+</script>

@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${pageTitle}</title>
+    <link rel="stylesheet" href="../../../addones/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <style type="text/css">
+        #mainFrame{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            width: 300px;
+            text-align: center;
+        }
+        .di_line{
+            height: 15px;
+        }
+        .button-inline{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainFrame">
+        <h1><img src="../../../images/page/logo-new.png" style="width: 200px;"/></h1>
+        <div class="di_line"></div>
+        <div id="acctFrame" class="input-group input-group-sm has-feedback">
+            <span class="input-group-addon">账号</span>
+            <input id="input_acct" type="text" class="form-control" placeholder="请输入账号" oninput="checkUserName()" />
+            <span id="acctCheckSpan" class="glyphicon form-control-feedback"></span>
+        </div>
+        <div class="di_line"></div>
+        <div id="pwdFrame" class="input-group input-group-sm has-feedback">
+            <span class="input-group-addon">密码</span>
+            <input id="input_pwd" type="password" class="form-control" placeholder="请输入密码" oninput="checkUserPwd()" />
+            <span id="pwdCheckSpan" class="glyphicon form-control-feedback"></span>
+        </div>
+        <div class="di_line"></div>
+        <p id="notifyMsg" class="bg-danger" style="display:none">......</p>
+        <div class="di_line"></div>
+        <div class="button-inline">
+            <button id="btnConfirm" style="width: 100px;" class="btn btn-success btn-xs" onclick="confirmLogin()">登陆</button>
+            <button id="btnRegister" style="width: 100px;" class="btn btn-link" onclick="regClick()">没有账号？</button>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../../../addones/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="../../../addones/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../addones/js/tooltip.js" type="text/javascript"></script>
+<script src="../../../addones/js/RegularExpression.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function regClick() {
+        window.location = "/html/register";
+    }
+    function confirmLogin() {
+        $("#notifyMsg").css("display","none");
+        var acct = $("#input_acct").val();
+        var pwd = $("#input_pwd").val();
+        if(acct == "" || pwd == ""){
+            $("#notifyMsg").html("账号密码不能为空");
+            $("#notifyMsg").css("display","block");
+            return;
+        }
+        $.post("/user/login.do",{USER_ACCT:acct,USER_PWD:pwd},function (data) {
+            var obj = data;
+            if (obj == '200003'){
+                //TODO
+               window.location = "/html/main";
+            }else if( obj == '200005'){
+                $("#notifyMsg").html("用户的密码不正确！");
+                $("#notifyMsg").css("display","block");
+            } else{
+                $("#notifyMsg").html("系统错误，登陆失败，错误码："+obj);
+                $("#notifyMsg").css("display","block");
+            }
+        });
+    }
+    function checkUserName() {
+        $("#acctCheckSpan").removeClass("glyphicon-ok");
+        $("#acctCheckSpan").removeClass("glyphicon-remove");
+        $("#acctFrame").removeClass("has-success");
+        $("#acctFrame").removeClass("has-error");
+        if(isNumberOrLetter($("#input_acct").val())){
+            $("#acctCheckSpan").addClass("glyphicon-ok");
+            $("#acctFrame").addClass("has-success");
+        }else{
+            $("#acctCheckSpan").addClass("glyphicon-remove");
+            $("#acctFrame").addClass("has-error");
+        }
+    }
+    function checkUserPwd() {
+        $("#pwdCheckSpan").removeClass("glyphicon-ok");
+        $("#pwdCheckSpan").removeClass("glyphicon-remove");
+        $("#pwdFrame").removeClass("has-success");
+        $("#pwdFrame").removeClass("has-error");
+        if(isNumberOrLetter($("#input_pwd").val())){
+            $("#pwdCheckSpan").addClass("glyphicon-ok");
+            $("#pwdFrame").addClass("has-success");
+        }else{
+            $("#pwdCheckSpan").addClass("glyphicon-remove");
+            $("#pwdFrame").addClass("has-error");
+        }
+    }
+</script>
