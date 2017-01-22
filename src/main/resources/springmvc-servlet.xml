@@ -62,7 +62,7 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     </bean>
-    <bean id="userController" class="com.wulin.biz.user.service.impl.UserServiceImpl"></bean>
+    <bean id="userController" class="com.wulin.biz.core.user.service.impl.UserServiceImpl"></bean>
     <bean id="userAction" class="com.wulin.web.controller.user.UserAction"></bean>
     <bean id="securityHelper" class="com.wulin.biz.common.service.impl.SecurityServiceImpl"></bean>
     <bean id="serverAction" class="com.wulin.web.controller.data.ServerAction"></bean>

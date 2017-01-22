@@ -1,7 +1,7 @@
 package com.wulin.web.controller.data;
 
 import com.wulin.biz.common.service.CheckService;
-import com.wulin.biz.role.service.RoleDataService;
+import com.wulin.biz.core.role.service.RoleDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

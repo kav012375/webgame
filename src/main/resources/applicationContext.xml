@@ -86,8 +86,8 @@
     <!-- 注解探测器 ， 在JUnit测试的时候需要-->
     <context:component-scan base-package="com.wulin"/>
     <!--配置接口bean-->
-    <bean id="userController" class="com.wulin.biz.user.service.impl.UserServiceImpl"></bean>
+    <bean id="userController" class="com.wulin.biz.core.user.service.impl.UserServiceImpl"></bean>
     <bean id="checkController" class="com.wulin.biz.common.service.impl.CheckServiceImpl"></bean>
     <bean id="securityHelper" class="com.wulin.biz.common.service.impl.SecurityServiceImpl"></bean>
-    <bean id="roleDataService" class="com.wulin.biz.role.service.impl.RoleDataImpl"></bean>
+    <bean id="roleDataService" class="com.wulin.biz.core.role.service.impl.RoleDataImpl"></bean>
 </beans>

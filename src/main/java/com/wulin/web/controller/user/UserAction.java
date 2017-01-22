@@ -1,10 +1,10 @@
 package com.wulin.web.controller.user;
 
 import com.wulin.dal.User.entity.UserDO;
-import com.wulin.biz.user.constants.UserReturnCodeEnum;
+import com.wulin.biz.core.user.constants.UserReturnCodeEnum;
 import com.wulin.biz.common.constants.ErrorCodeEnum;
 import com.wulin.biz.common.service.SecurityService;
-import com.wulin.biz.user.service.UserService;
+import com.wulin.biz.core.user.service.UserService;
 import com.wulin.biz.common.constants.SessionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

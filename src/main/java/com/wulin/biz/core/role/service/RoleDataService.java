@@ -1,4 +1,4 @@
-package com.wulin.biz.role.service;
+package com.wulin.biz.core.role.service;
 
 import com.wulin.biz.common.dto.ProsessionInitDataDTO;
 import com.wulin.dal.Role.entity.RoleDO;

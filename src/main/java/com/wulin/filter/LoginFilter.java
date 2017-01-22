@@ -1,7 +1,7 @@
 package com.wulin.filter;
 
-import com.wulin.biz.user.service.impl.UserServiceImpl;
-import com.wulin.biz.user.service.UserService;
+import com.wulin.biz.core.user.service.impl.UserServiceImpl;
+import com.wulin.biz.core.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;

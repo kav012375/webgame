@@ -1,12 +1,12 @@
-package com.wulin.biz.user.service.impl;
+package com.wulin.biz.core.user.service.impl;
 
 import com.wulin.dal.User.dao.UserDAO;
 import com.wulin.dal.User.entity.UserDO;
-import com.wulin.biz.user.constants.UserReturnCodeEnum;
+import com.wulin.biz.core.user.constants.UserReturnCodeEnum;
 import com.wulin.biz.common.constants.ErrorCodeEnum;
 import com.wulin.biz.common.service.CheckService;
 import com.wulin.biz.common.service.SecurityService;
-import com.wulin.biz.user.service.UserService;
+import com.wulin.biz.core.user.service.UserService;
 import com.wulin.biz.common.constants.SessionEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
-import java.util.Random;
 
 /**
  * Created by FengG on 16/6/20.

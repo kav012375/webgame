@@ -3,7 +3,7 @@ package com.wulin.web.controller.view;
 import com.wulin.dal.Prosession.dao.ProsessionDAO;
 import com.wulin.dal.Role.dao.RoleDAO;
 import com.wulin.dal.Prosession.entity.ProsessionDO;
-import com.wulin.biz.user.service.UserService;
+import com.wulin.biz.core.user.service.UserService;
 import com.wulin.biz.common.constants.SessionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

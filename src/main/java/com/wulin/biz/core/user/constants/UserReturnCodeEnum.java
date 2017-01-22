@@ -1,4 +1,4 @@
-package com.wulin.biz.user.constants;
+package com.wulin.biz.core.user.constants;
 
 /**
  * Created by FengG on 16/6/20.

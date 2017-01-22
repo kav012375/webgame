@@ -1,4 +1,4 @@
-package com.wulin.biz.user.service;
+package com.wulin.biz.core.user.service;
 
 import com.wulin.dal.User.entity.UserDO;
 import org.springframework.stereotype.Service;

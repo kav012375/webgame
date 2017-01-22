@@ -1,7 +1,7 @@
-package com.wulin.biz.role.service.impl;
+package com.wulin.biz.core.role.service.impl;
 
 import com.wulin.biz.common.dto.ProsessionInitDataDTO;
-import com.wulin.biz.role.service.RoleDataService;
+import com.wulin.biz.core.role.service.RoleDataService;
 import com.wulin.dal.Role.entity.RoleDO;
 import org.springframework.transaction.annotation.Transactional;
 
