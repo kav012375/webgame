@@ -1,4 +1,4 @@
-package com.wulin.web.controller.view;
+package com.wulin.web.view;
 
 import com.wulin.dal.Prosession.dao.ProsessionDAO;
 import com.wulin.dal.Role.dao.RoleDAO;

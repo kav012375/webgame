@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 public class LoginFilter extends OncePerRequestFilter {
     private UserService userService = new UserServiceImpl();
-    private static final Logger logger = LoggerFactory.getLogger("CONSOLE");
+    private static final Logger logger = LoggerFactory.getLogger("LOGGER");
     @Override
     protected void doFilterInternal(
             HttpServletRequest httpServletRequest,
