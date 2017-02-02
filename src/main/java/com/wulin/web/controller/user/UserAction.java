@@ -1,5 +1,6 @@
 package com.wulin.web.controller.user;
 
+import com.wulin.biz.common.service.SmsSendService;
 import com.wulin.dal.User.entity.UserDO;
 import com.wulin.biz.core.user.constants.UserReturnCodeEnum;
 import com.wulin.biz.common.constants.ErrorCodeEnum;
@@ -30,6 +31,8 @@ public class UserAction {
     private UserService userService;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    SmsSendService smsSendService;
     //返回JSON
     @ResponseBody
     @RequestMapping("/get")
@@ -44,19 +47,22 @@ public class UserAction {
             throws IOException {
         UserDO userDO = new UserDO();
         String validataCode = "null";
+        String mobileVerifyCode = "null";
         HttpSession httpSession  = httpServletRequest.getSession();
         userDO.setUSER_ACCT(httpServletRequest.getParameter("USER_ACCT"));
         userDO.setUSER_PWD(httpServletRequest.getParameter("USER_PWD"));
         userDO.setREG_IP(securityService.GetRealIpAddr(httpServletRequest));
+        userDO.setPHONE_NUM(httpServletRequest.getParameter("USER_MOBILE_PHONE").toString());
         validataCode = httpServletRequest.getParameter("USER_CCODE").toString().toLowerCase();
+        mobileVerifyCode = httpServletRequest.getParameter("USER_MOBILE_VCODE").toString();
         try {
-            //判断是否为影子测试标记
-            if (validataCode.equals("_t__shadow")){
-                return userService.insertUser(userDO);
-            }
             //判断验证码是否正确
             if((validataCode.compareTo(httpSession.getAttribute("validateCode").toString().toLowerCase())!=0)){
                 return UserReturnCodeEnum.USER_CCODE_IS_NULL_OR_INCORRECT.getIndex().toString();
+            }
+            //判断手机验证码是否正确
+            if(!smsSendService.isMobileVerifyCodeVaild(mobileVerifyCode,userDO.getUSER_ACCT())){
+                return UserReturnCodeEnum.USER_MOBILE_CCDOE_IS_NULL_OR_INCORRECT.getIndex().toString();
             }
             //判断用户IP地址是否可疑？
 //            if(userDO.getREG_IP() == "127.0.0.1" || userDO.getREG_IP() == "localhost"){
@@ -68,6 +74,7 @@ public class UserAction {
             return ErrorCodeEnum.SYSTEM_ERROR.getIndex().toString();
         }
     }
+
     @RequestMapping("/login.do")
     @ResponseBody
     public String loginUser(HttpServletRequest httpServletRequest,

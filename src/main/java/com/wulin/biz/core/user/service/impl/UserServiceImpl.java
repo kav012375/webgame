@@ -44,7 +44,9 @@ public class UserServiceImpl implements UserService {
             //如果是主键冲突,则代表用户名已经存在,否则就是系统异常
             if(error_res.contains("USER_ACCT_UNIQUE")){
                 return UserReturnCodeEnum.USER_HAS_ALREADY_EXIST.getIndex().toString();
-            }else {
+            } else if (error_res.contains("USER_PHONE_UNIQUE")){
+                return UserReturnCodeEnum.USER_PHONE_HAS_BEEN_USED.getIndex().toString();
+            } else {
                 return ErrorCodeEnum.SYSTEM_ERROR.getIndex().toString();
             }
         }

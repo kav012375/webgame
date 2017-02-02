@@ -23,7 +23,7 @@
     <insert id="InsertNewUser" parameterType="com.wulin.dal.User.entity.UserDO" useGeneratedKeys="true">
         <![CDATA[
 
-          INSERT INTO user (USER_ACCT,USER_PWD,CREATION_TIME,REG_IP) VALUES (#{USER_ACCT},#{USER_PWD},#{CREATION_TIME},#{REG_IP});
+          INSERT INTO user (USER_ACCT,USER_PWD,CREATION_TIME,REG_IP,PHONE_NUM) VALUES (#{USER_ACCT},#{USER_PWD},#{CREATION_TIME},#{REG_IP},#{PHONE_NUM});
 
         ]]>
     </insert>

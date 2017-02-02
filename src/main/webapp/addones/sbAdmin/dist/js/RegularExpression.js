@@ -45,7 +45,7 @@ function isIP(strIP)
  */
 function checkMobile( strMobile )
 {
-    var regu = /^[1][3][0-9]{9}$/;
+    var regu = /^[1][0-9]{10}$/;
     var re = new RegExp(regu);
     if (re.test(strMobile)) {
         return true;

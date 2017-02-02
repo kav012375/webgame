@@ -12,7 +12,9 @@ public enum UserReturnCodeEnum {
     USER_CCODE_IS_NULL_OR_INCORRECT("用户验证码不正确或为空！",200006),
     USER_IP_IS_BAD("用户IP地址很可疑，怀疑代理刷小号，请联系管理员!",200007),
     USER_HAS_NOT_LOGIN("用户未登录",200008),
-    USER_HAS_ALREADY_LOGIN("用户已经登录",200009);
+    USER_HAS_ALREADY_LOGIN("用户已经登录",200009),
+    USER_MOBILE_CCDOE_IS_NULL_OR_INCORRECT("用户手机验证码不正确",200010),
+    USER_PHONE_HAS_BEEN_USED("手机号码已经被注册",200011);
     private String description;
     private Integer index;
     //构造方法

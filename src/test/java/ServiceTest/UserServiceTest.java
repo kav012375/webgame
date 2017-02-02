@@ -1,5 +1,6 @@
 package ServiceTest;
 
+import com.wulin.biz.common.service.SmsSendService;
 import com.wulin.dal.Prosession.dao.ProsessionDAO;
 import com.wulin.dal.Role.dao.RoleDAO;
 import com.wulin.dal.Prosession.entity.ProsessionDO;
@@ -35,6 +36,8 @@ public class UserServiceTest {
     RoleDAO roleDAO;
     @Autowired
     ProsessionDAO prosessionDAO;
+    @Autowired
+    SmsSendService smsSendService;
     
     @Test
     public void 向表中插入新的用户用户名为空_注册方法_返回错误描述(){
@@ -219,6 +222,11 @@ public class UserServiceTest {
         for (ProsessionDO p : psd) {
             System.out.println(p.getP_NAME());
         }
+    }
+    @Test
+    public void testSendSMS(){
+       //String result =  smsSendService.sendVerifyCode("屌飞了","123456","15920433761");
+       //System.out.println(result);
     }
 
 }

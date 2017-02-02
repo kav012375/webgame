@@ -27,7 +27,8 @@ public class LoginFilter extends OncePerRequestFilter {
         boolean doFilter = true;
         //配置不需要进行登陆过滤的Uri
         String[] nonFilterUri = new String[]{
-          "/html/login", "/images","/addones","/user","/css","/getCode.do","/register"
+          "/html/login", "/images","/addones","/user","/css","/getCode.do","/register",
+                "/sms/send"
         };
         String reqUri = httpServletRequest.getRequestURI();
         for (String Uriunit : nonFilterUri){
