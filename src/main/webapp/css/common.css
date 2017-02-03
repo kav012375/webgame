@@ -31,3 +31,31 @@ body{
 .box-shadow-customs{
     box-shadow: 0 0 10px #cccccc;
 }
+.normal-button{
+    background-image: url(../images/page/buttons/normal-button.gif);
+    width: 58px;
+    height: 29px;
+    border: 0px;
+    font-size: 12px;
+    color: #E6F678;
+    line-height: 29px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+}
+.normal-button-big{
+    background-image: url(../images/page/buttons/normal-button-88.gif);
+    width: 88px;
+    height: 29px;
+    border: 0px;
+    font-size: 12px;
+    color: #E6F678;
+    line-height: 29px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+}

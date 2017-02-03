@@ -2,7 +2,6 @@ package com.wulin.web.controller.data;
 
 import com.wulin.biz.common.service.SecurityService;
 import com.wulin.biz.common.service.SmsSendService;
-import com.wulin.biz.common.service.impl.SmsSendImpl;
 import com.wulin.biz.core.user.constants.UserReturnCodeEnum;
 import com.wulin.utils.HttpServletResponseOutputUtils;
 import com.wulin.utils.VerifyCodeGenerator;
@@ -12,12 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * Created by fengguoyang on 17/1/30.
