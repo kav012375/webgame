@@ -163,14 +163,14 @@
                 });
     }
     function checkUserPwd() {
-        if (isNumberOrLetter($("#input_pwd").val())) {
+        if (isNumberOrLetter($("#input_pwd").val())&&($("#input_pwd").val().length>=8)&&($("#input_pwd").val().length<=24)) {
             return true;
         } else {
             return false;
         }
     }
     function checkUserName() {
-        if (isNumberOrLetter($("#input_acct").val())) {
+        if (isNumberOrLetter($("#input_acct").val())&&($("#input_acct").val().length>=8)&&($("#input_acct").val().length<=24)) {
             return true;
         } else {
             return false;
@@ -207,14 +207,14 @@
         if (!checkUserName()) {
             $.alert({
                 title: '用户名格式错误!',
-                content: '用户名中存在特殊字符或长度超过24位！',
+                content: '用户名中存在特殊字符或长度超过24位或者长度小于8位！',
             });
             return;
         }
         if (!checkUserPwd()) {
             $.alert({
                 title: '用户密码格式错误!',
-                content: '用户密码中存在特殊字符或长度超过24位！',
+                content: '用户密码中存在特殊字符或长度超过24位或者长度小于8位！',
             });
             return;
         }

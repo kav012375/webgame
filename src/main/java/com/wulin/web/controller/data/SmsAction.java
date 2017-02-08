@@ -61,6 +61,12 @@ public class SmsAction {
                         "发送成功！");
                 return;
             }
+            if (reslut_code == "NOK60S"){
+                HttpServletResponseOutputUtils.printMsgToWeb(
+                        httpServletResponse,
+                        "60秒内不允许连续发送！");
+                return;
+            }
             HttpServletResponseOutputUtils.printMsgToWeb(
                     httpServletResponse,
                     "发送失败，请联系管理员！"

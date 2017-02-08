@@ -36,7 +36,7 @@ public class SmsSendImpl implements SmsSendService {
                 if(s.getReqIp().equals(ReqIp)){
                     if(System.currentTimeMillis() - s.getSendTime() < 60000){
                         logger.error("发送验证码错误，用户名："+userName+",手机号码为："+mobileNumber+"错误原因：60s内连续发送验证码");
-                        return "NOK";
+                        return "NOK60S";
                     }else{
                         smsVCodeAndUserNamePairList.remove(s);
                     }

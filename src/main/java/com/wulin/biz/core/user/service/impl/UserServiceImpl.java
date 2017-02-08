@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
         if (!paramCheck(userDO).equals(ErrorCodeEnum.PARAMETER_CHECK_PASS.getIndex().toString())){
             return paramCheck(userDO);
         }
+
         //正式的注册流程
         try{
             userDO.setUSER_PWD(securityService.Md5Creator(userDO.getUSER_PWD()));
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
     }
     @Transactional
     public String userLogin(UserDO userDO) {
-        UserDO getUserFromDatabase = new UserDO();
+            UserDO getUserFromDatabase = new UserDO();
         if (!paramCheck(userDO).equals(ErrorCodeEnum.PARAMETER_CHECK_PASS.getIndex().toString())){
             return paramCheck(userDO);
         }
